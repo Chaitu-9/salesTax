@@ -16,9 +16,9 @@ public class GoodsTest {
         when(mockbook.calcluateSalesTax())
                 .thenReturn(12.49);
 
-        double expectedPriceWithTax = goods.PriceWithAllTaxesIncluded();
+        double actualPriceWithTax = goods.PriceWithAllTaxesIncluded();
 
-        assertThat(13.11, is(expectedPriceWithTax));
+        assertThat(actualPriceWithTax, is(13.11));
     }
 
     @Test
@@ -26,9 +26,9 @@ public class GoodsTest {
         Goods goods = new Goods(12.49);
         goods.calculateSalesTax();
 
-        double expectedPriceWithTax = goods.PriceWithAllTaxesIncluded();
+        double actualPriceWithTax = goods.PriceWithAllTaxesIncluded();
 
-        assertThat(14.43, is(expectedPriceWithTax));
+        assertThat(actualPriceWithTax, is(14.43));
     }
 
 
