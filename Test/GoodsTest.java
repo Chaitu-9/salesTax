@@ -10,6 +10,7 @@ public class GoodsTest {
     @Test
     public void calculatingPriceWithAllTaxesIncludedForNonSalesTaxableItem() {
         Goods goods = new Goods(12.49);
+        goods.calculateSalesTaxForNonTaxableItem();
 
         NonSalesTaxableItem mockbook = mock(NonSalesTaxableItem.class);
         when(mockbook.calcluateSalesTax())
@@ -18,6 +19,16 @@ public class GoodsTest {
         double expectedPriceWithTax = goods.PriceWithAllTaxesIncluded();
 
         assertThat(13.11, is(expectedPriceWithTax));
+    }
+
+    @Test
+    public void calculatingPriceWithAllTaxesIncludedForSalesTaxableItem() {
+        Goods goods = new Goods(12.49);
+        goods.calculateSalesTax();
+
+        double expectedPriceWithTax = goods.PriceWithAllTaxesIncluded();
+
+        assertThat(14.43, is(expectedPriceWithTax));
     }
 
 
